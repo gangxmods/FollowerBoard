@@ -27,34 +27,12 @@ namespace FollowBoard
     public class Plugin : BaseUnityPlugin
     {
         public static GameObject FollowBoard;
-        public static bool inModded = false;
 
         void Start()
         {
             LoadAssets();
             Utilla.Events.GameInitialized += OnGameInitialized;
         }
-
-        [ModdedGamemodeJoin]
-        public void OnJoin(string gamemode)
-        {
-            /* Activate your mod here */
-            /* This code will run regardless of if the mod is enabled*/
-            //FollowBoard.SetActive(true);
-            inModded = true;
-        }
-
-        /* This attribute tells Utilla to call this method when a modded room is left */
-        [ModdedGamemodeLeave]
-        public void OnLeave(string gamemode)
-        {
-            /* Deactivate your mod here */
-            /* This code will run regardless of if the mod is enabled*/
-            //FollowBoard.transform.position = new Vector3(0, 0, 0);
-            //FollowBoard.SetActive(true);
-            inModded = false;
-        }
-
         void OnEnable()
         {
             /* Set up your mod here */
